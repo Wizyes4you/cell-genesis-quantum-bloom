@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '@/components/landing/Header';
 import Footer from '@/components/landing/Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -8,10 +8,54 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Heart, DollarSign } from 'lucide-react';
+import { toast } from 'sonner';
+import { supabase } from '@/lib/supabase';
 
 const SupportPage = () => {
     const { t } = useLanguage();
     const [donationAmount, setDonationAmount] = React.useState('');
+    const [isLoading, setIsLoading] = React.useState(false);
+
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('payment_success')) {
+            toast.success(t('donation_success_title'), {
+                description: t('donation_success_desc'),
+            });
+        }
+        if (params.get('payment_canceled')) {
+            toast.error(t('donation_canceled_title'), {
+                description: t('donation_canceled_desc'),
+            });
+        }
+    }, [t]);
+
+    const handleDonate = async () => {
+        const amount = parseFloat(donationAmount);
+        if (isNaN(amount) || amount <= 0) {
+            toast.error(t('invalid_amount_error'));
+            return;
+        }
+
+        setIsLoading(true);
+        toast.info(t('redirecting_to_payment'));
+
+        try {
+            const { data, error } = await supabase.functions.invoke('create-donation', {
+                body: { amount },
+            });
+
+            if (error) throw error;
+
+            if (data.url) {
+                window.location.href = data.url;
+            }
+        } catch (error) {
+            console.error('Donation Error:', error);
+            toast.error(t('payment_error_desc'));
+            setIsLoading(false);
+        }
+    };
 
     return (
         <div className="bg-background text-foreground font-sans">
@@ -36,9 +80,10 @@ const SupportPage = () => {
                             <CardDescription>{t('subscription_desc')}</CardDescription>
                         </CardHeader>
                         <CardContent className="flex-grow flex flex-col justify-end">
-                            <Button size="lg" className="w-full">
+                            <Button size="lg" className="w-full" disabled>
                                 {t('subscribe_button')}
                             </Button>
+                             <p className="text-xs text-muted-foreground mt-2 text-center">{t('login_required_for_subscription')}</p>
                         </CardContent>
                     </Card>
 
@@ -62,11 +107,12 @@ const SupportPage = () => {
                                         value={donationAmount}
                                         onChange={(e) => setDonationAmount(e.target.value)}
                                         className="pl-10"
+                                        disabled={isLoading}
                                     />
                                 </div>
                             </div>
-                            <Button size="lg" className="w-full">
-                                {t('donate_button')}
+                            <Button size="lg" className="w-full" onClick={handleDonate} disabled={isLoading}>
+                                {isLoading ? t('processing_payment') : t('donate_button')}
                             </Button>
                         </CardContent>
                     </Card>

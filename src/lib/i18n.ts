@@ -1,4 +1,3 @@
-
 export const translations = {
   ar: {
     header_title: "الخلية الكمومية",
@@ -52,6 +51,15 @@ export const translations = {
     donation_placeholder: "أدخل المبلغ بالدولار الأمريكي",
     donate_button: "تبرع الآن",
     donation_amount: "المبلغ",
+    donation_success_title: "شكراً لدعمك!",
+    donation_success_desc: "لقد استلمنا تبرعك بنجاح. نقدر مساهمتك.",
+    donation_canceled_title: "تم إلغاء الدفع",
+    donation_canceled_desc: "يبدو أنك ألغيت عملية الدفع. يمكنك المحاولة مرة أخرى في أي وقت.",
+    invalid_amount_error: "الرجاء إدخال مبلغ صحيح.",
+    redirecting_to_payment: "جارٍ تحويلك إلى صفحة الدفع...",
+    payment_error_desc: "حدث خطأ أثناء معالجة الدفع. يرجى المحاولة مرة أخرى.",
+    processing_payment: "جارٍ المعالجة...",
+    login_required_for_subscription: "الاشتراكات تتطلب تسجيل الدخول. سيتم تفعيلها قريباً.",
   },
   en: {
     header_title: "Quantum Cell",
@@ -105,5 +113,14 @@ export const translations = {
     donation_placeholder: "Enter amount in USD",
     donate_button: "Donate",
     donation_amount: "Amount",
+    donation_success_title: "Thank You for Your Support!",
+    donation_success_desc: "We have successfully received your donation. We appreciate your contribution.",
+    donation_canceled_title: "Payment Canceled",
+    donation_canceled_desc: "It looks like you canceled the payment process. You can try again anytime.",
+    invalid_amount_error: "Please enter a valid amount.",
+    redirecting_to_payment: "Redirecting to payment...",
+    payment_error_desc: "An error occurred while processing the payment. Please try again.",
+    processing_payment: "Processing...",
+    login_required_for_subscription: "Subscriptions require login. Will be enabled soon.",
   }
 };
