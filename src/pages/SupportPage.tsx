@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Header from '@/components/landing/Header';
 import Footer from '@/components/landing/Footer';
@@ -32,13 +31,13 @@ const SupportPage = () => {
             });
         }
         if (params.get('subscription_success')) {
-            toast.success(t('subscription_success_title', 'Subscription Successful!'), {
-                description: t('subscription_success_desc', 'Welcome! You are now subscribed.'),
+            toast.success(t('subscription_success_title'), {
+                description: t('subscription_success_desc'),
             });
         }
         if (params.get('subscription_canceled')) {
-            toast.error(t('subscription_canceled_title', 'Subscription Canceled'), {
-                description: t('subscription_canceled_desc', 'Your subscription process was canceled.'),
+            toast.error(t('subscription_canceled_title'), {
+                description: t('subscription_canceled_desc'),
             });
         }
         // Clean the URL to avoid showing toasts on refresh
@@ -133,7 +132,7 @@ const SupportPage = () => {
                                 {isSubscribing ? t('processing') : t('subscribe_button')}
                             </Button>
                              <p className="text-xs text-muted-foreground mt-2 text-center">
-                                {!user ? t('login_required_for_subscription') : `${t('subscription_price', '$9.99 / month')}`}
+                                {!user ? t('login_required_for_subscription') : `${t('subscription_price')}`}
                              </p>
                         </CardContent>
                     </Card>
