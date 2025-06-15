@@ -1,13 +1,26 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from './Logo';
 import { Button } from "@/components/ui/button";
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { Languages } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import AuthForm from '../auth/Auth';
+import { UserNav } from '../auth/UserNav';
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
+  const { user, loading } = useAuth();
+  const [isAuthModalOpen, setAuthModalOpen] = useState(false);
 
   const toggleLanguage = () => {
     setLanguage(language === 'ar' ? 'en' : 'ar');
@@ -25,11 +38,31 @@ const Header = () => {
           <Link to="/#roadmap" className="hover:text-primary transition-colors">{t('nav_roadmap')}</Link>
           <Link to="/#stats" className="hover:text-primary transition-colors">{t('nav_stats')}</Link>
           <Link to="/mining" className="hover:text-primary transition-colors">{t('nav_mining')}</Link>
+          <Link to="/support" className="hover:text-primary transition-colors">{t('nav_support')}</Link>
         </nav>
         <div className="flex items-center gap-4">
-          <Button asChild className="bg-primary/90 hover:bg-primary text-primary-foreground font-bold text-lg px-6 py-3 rounded-full">
-            <Link to="/mining">{t('join_button')}</Link>
-          </Button>
+          {loading ? (
+            <div className="h-10 w-24 rounded-full bg-muted animate-pulse" />
+          ) : user ? (
+            <UserNav />
+          ) : (
+            <Dialog open={isAuthModalOpen} onOpenChange={setAuthModalOpen}>
+              <DialogTrigger asChild>
+                <Button className="font-bold text-lg px-6 py-3 rounded-full">
+                  {t('login_button')}
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>{t('auth_modal_title')}</DialogTitle>
+                  <DialogDescription>
+                    {t('auth_modal_desc')}
+                  </DialogDescription>
+                </DialogHeader>
+                <AuthForm setOpen={setAuthModalOpen} />
+              </DialogContent>
+            </Dialog>
+          )}
           <Button variant="outline" size="icon" onClick={toggleLanguage} aria-label="Toggle Language">
             <Languages className="h-[1.2rem] w-[1.2rem]" />
           </Button>

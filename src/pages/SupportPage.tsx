@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Header from '@/components/landing/Header';
 import Footer from '@/components/landing/Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -13,8 +14,10 @@ import { supabase } from '@/lib/supabase';
 
 const SupportPage = () => {
     const { t } = useLanguage();
+    const { user } = useAuth();
     const [donationAmount, setDonationAmount] = React.useState('');
     const [isLoading, setIsLoading] = React.useState(false);
+    const [isSubscribing, setIsSubscribing] = React.useState(false);
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
@@ -57,6 +60,17 @@ const SupportPage = () => {
         }
     };
 
+    const handleSubscribe = async () => {
+        // This is a placeholder for now.
+        // We will implement create-subscription function in the next step.
+        setIsSubscribing(true);
+        toast.info("Subscription feature is coming soon!");
+        console.log("Subscribing...");
+        // In a future step, we will call:
+        // await supabase.functions.invoke('create-subscription');
+        setTimeout(() => setIsSubscribing(false), 2000);
+    }
+
     return (
         <div className="bg-background text-foreground font-sans">
             <Header />
@@ -80,10 +94,17 @@ const SupportPage = () => {
                             <CardDescription>{t('subscription_desc')}</CardDescription>
                         </CardHeader>
                         <CardContent className="flex-grow flex flex-col justify-end">
-                            <Button size="lg" className="w-full" disabled>
-                                {t('subscribe_button')}
+                            <Button 
+                                size="lg" 
+                                className="w-full" 
+                                disabled={!user || isSubscribing}
+                                onClick={handleSubscribe}
+                            >
+                                {isSubscribing ? t('processing') : t('subscribe_button')}
                             </Button>
-                             <p className="text-xs text-muted-foreground mt-2 text-center">{t('login_required_for_subscription')}</p>
+                             <p className="text-xs text-muted-foreground mt-2 text-center">
+                                {!user ? t('login_required_for_subscription') : t('subscription_coming_soon')}
+                             </p>
                         </CardContent>
                     </Card>
 
