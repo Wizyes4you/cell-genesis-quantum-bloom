@@ -31,6 +31,21 @@ const SupportPage = () => {
                 description: t('donation_canceled_desc'),
             });
         }
+        if (params.get('subscription_success')) {
+            toast.success(t('subscription_success_title', 'Subscription Successful!'), {
+                description: t('subscription_success_desc', 'Welcome! You are now subscribed.'),
+            });
+        }
+        if (params.get('subscription_canceled')) {
+            toast.error(t('subscription_canceled_title', 'Subscription Canceled'), {
+                description: t('subscription_canceled_desc', 'Your subscription process was canceled.'),
+            });
+        }
+        // Clean the URL to avoid showing toasts on refresh
+        if (params.toString() && window.history.replaceState) {
+            const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            window.history.replaceState({}, document.title, cleanUrl);
+        }
     }, [t]);
 
     const handleDonate = async () => {
@@ -61,14 +76,29 @@ const SupportPage = () => {
     };
 
     const handleSubscribe = async () => {
-        // This is a placeholder for now.
-        // We will implement create-subscription function in the next step.
+        if (!user) {
+            toast.error(t('login_required_for_subscription'));
+            return;
+        }
+
         setIsSubscribing(true);
-        toast.info("Subscription feature is coming soon!");
-        console.log("Subscribing...");
-        // In a future step, we will call:
-        // await supabase.functions.invoke('create-subscription');
-        setTimeout(() => setIsSubscribing(false), 2000);
+        toast.info(t('redirecting_to_payment'));
+
+        try {
+            const { data, error } = await supabase.functions.invoke('create-subscription');
+
+            if (error) throw error;
+
+            if (data.url) {
+                window.location.href = data.url;
+            } else {
+                throw new Error("No URL returned from the function.");
+            }
+        } catch (error: any) {
+            console.error('Subscription Error:', error);
+            toast.error(t('payment_error_desc'), { description: error.message || "An unknown error occurred." });
+            setIsSubscribing(false);
+        }
     }
 
     return (
@@ -103,7 +133,7 @@ const SupportPage = () => {
                                 {isSubscribing ? t('processing') : t('subscribe_button')}
                             </Button>
                              <p className="text-xs text-muted-foreground mt-2 text-center">
-                                {!user ? t('login_required_for_subscription') : t('subscription_coming_soon')}
+                                {!user ? t('login_required_for_subscription') : `${t('subscription_price', '$9.99 / month')}`}
                              </p>
                         </CardContent>
                     </Card>
