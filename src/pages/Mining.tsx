@@ -5,6 +5,7 @@ import Footer from '@/components/landing/Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Zap, Atom, Hourglass } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const MiningPage = () => {
   const { t } = useLanguage();
@@ -45,8 +46,11 @@ const MiningPage = () => {
               <CardContent>
                 <p className="text-muted-foreground">{t('mining_coming_soon_desc')}</p>
                 <div className="mt-4 flex flex-col items-center justify-center p-8 border-2 border-dashed border-border rounded-lg bg-background/50">
-                  <Zap className="w-16 h-16 text-primary animate-pulse" />
-                  <p className="mt-4 font-semibold text-lg">{t('join_button')}</p>
+                  <Zap className="w-16 h-16 text-primary" />
+                  <Button disabled size="lg" className="mt-4 animate-pulse">
+                    <Zap className="mr-2 h-5 w-5" />
+                    {t('start_mining_button')}
+                  </Button>
                 </div>
               </CardContent>
             </Card>

@@ -27,8 +27,8 @@ const Header = () => {
           <Link to="/mining" className="hover:text-primary transition-colors">{t('nav_mining')}</Link>
         </nav>
         <div className="flex items-center gap-4">
-          <Button className="bg-primary/90 hover:bg-primary text-primary-foreground font-bold text-lg px-6 py-3 rounded-full">
-            {t('join_button')}
+          <Button asChild className="bg-primary/90 hover:bg-primary text-primary-foreground font-bold text-lg px-6 py-3 rounded-full">
+            <Link to="/mining">{t('join_button')}</Link>
           </Button>
           <Button variant="outline" size="icon" onClick={toggleLanguage} aria-label="Toggle Language">
             <Languages className="h-[1.2rem] w-[1.2rem]" />

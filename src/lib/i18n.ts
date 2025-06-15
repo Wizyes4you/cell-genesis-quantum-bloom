@@ -33,6 +33,7 @@ export const translations = {
     mining_principle_desc: "يستغل نظامنا المبادئ الفيزيائية الأساسية. مستشعرات هاتفك تلتقط الاهتزازات والترددات الدقيقة من بيئتك ومن تفاعلك، ويقوم نظامنا بتحويل هذه البيانات إلى طاقة رقمية تساهم في نمو الخلية الكمومية.",
     mining_coming_soon_title: "واجهة التعدين قادمة قريباً",
     mining_coming_soon_desc: "نحن نعمل على تطوير واجهة تفاعلية تسمح لك ببدء التعدين مباشرة من جهازك. ترقب التحديثات!",
+    start_mining_button: "ابدأ التعدين",
     footer_title: "الخلية الكمومية",
     footer_subtitle: "بناء مستقبل لامركزي، خلية واحدة في كل مرة.",
     footer_copyright: "الخلية الكمومية. جميع الحقوق محفوظة.",
@@ -71,9 +72,11 @@ export const translations = {
     mining_principle_desc: "Our system leverages fundamental physical principles. Your phone's sensors capture subtle vibrations and frequencies from your environment and your interaction. Our system converts this data into digital energy that contributes to the growth of the Quantum Cell.",
     mining_coming_soon_title: "Mining Interface Coming Soon",
     mining_coming_soon_desc: "We are developing an interactive interface that will allow you to start mining directly from your device. Stay tuned for updates!",
+    start_mining_button: "Start Mining",
     footer_title: "Quantum Cell",
     footer_subtitle: "Building a decentralized future, one cell at a time.",
     footer_copyright: "Quantum Cell. All rights reserved.",
     language_toggle: "العربية"
   }
 };
+
