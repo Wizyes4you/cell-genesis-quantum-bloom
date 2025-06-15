@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useContext, useEffect, useMemo } from 'react';
 import { translations } from '@/lib/i18n';
 
@@ -24,7 +25,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return translations[language][key] || translations['en'][key];
   };
 
-  const dir = language === 'ar' ? 'rtl' : 'ltr';
+  const dir: 'rtl' | 'ltr' = language === 'ar' ? 'rtl' : 'ltr';
   
   const value = {
     language,
