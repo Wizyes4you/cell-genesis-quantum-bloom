@@ -4,6 +4,7 @@ import Logo from './Logo';
 import { Button } from "@/components/ui/button";
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Languages } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -20,9 +21,10 @@ const Header = () => {
           <h1 className="text-2xl font-bold text-foreground">{t('header_title')}</h1>
         </div>
         <nav className="hidden md:flex items-center gap-6 text-lg">
-          <a href="#manifesto" className="hover:text-primary transition-colors">{t('nav_manifesto')}</a>
-          <a href="#roadmap" className="hover:text-primary transition-colors">{t('nav_roadmap')}</a>
-          <a href="#stats" className="hover:text-primary transition-colors">{t('nav_stats')}</a>
+          <Link to="/#manifesto" className="hover:text-primary transition-colors">{t('nav_manifesto')}</Link>
+          <Link to="/#roadmap" className="hover:text-primary transition-colors">{t('nav_roadmap')}</Link>
+          <Link to="/#stats" className="hover:text-primary transition-colors">{t('nav_stats')}</Link>
+          <Link to="/mining" className="hover:text-primary transition-colors">{t('nav_mining')}</Link>
         </nav>
         <div className="flex items-center gap-4">
           <Button className="bg-primary/90 hover:bg-primary text-primary-foreground font-bold text-lg px-6 py-3 rounded-full">
