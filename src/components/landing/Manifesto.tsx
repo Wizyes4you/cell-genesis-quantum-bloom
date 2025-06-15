@@ -2,42 +2,45 @@
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Calculator, Landmark, Users, Palette, ShieldCheck } from 'lucide-react';
-
-const principles = [
-  {
-    icon: <Calculator className="w-12 h-12 text-primary" />,
-    title: "المعادلة الرياضية",
-    description: "نظام قائم على نماذج رياضية متقدمة تضمن الندرة، التوزيع العادل، والنمو المستدام."
-  },
-  {
-    icon: <Landmark className="w-12 h-12 text-primary" />,
-    title: "المعادلة الاقتصادية",
-    description: "اقتصاد رقمي لامركزي يحفز المشاركة، يكافئ على القيمة المضافة، ويخلق ثروة جماعية."
-  },
-  {
-    icon: <Users className="w-12 h-12 text-primary" />,
-    title: "المعادلة الاجتماعية",
-    description: "شبكة عالمية تعزز التعاون والثقة، وتُمكّن الأفراد من تحقيق إمكاناتهم الكاملة."
-  },
-  {
-    icon: <Palette className="w-12 h-12 text-primary" />,
-    title: "المعادلة الثقافية",
-    description: "منصة للتعبير الإبداعي وتبادل المعرفة، تحتفي بالتنوع وتثري التجربة الإنسانية."
-  },
-  {
-    icon: <ShieldCheck className="w-12 h-12 text-primary" />,
-    title: "المعادلة السياسية",
-    description: "نموذج حوكمة شفاف وديمقراطي، يضع السلطة في يد المجتمع ويضمن سيادة الفرد."
-  }
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Manifesto = () => {
+  const { t } = useLanguage();
+
+  const principles = [
+    {
+      icon: <Calculator className="w-12 h-12 text-primary" />,
+      title: t("manifesto_p1_title"),
+      description: t("manifesto_p1_desc")
+    },
+    {
+      icon: <Landmark className="w-12 h-12 text-primary" />,
+      title: t("manifesto_p2_title"),
+      description: t("manifesto_p2_desc")
+    },
+    {
+      icon: <Users className="w-12 h-12 text-primary" />,
+      title: t("manifesto_p3_title"),
+      description: t("manifesto_p3_desc")
+    },
+    {
+      icon: <Palette className="w-12 h-12 text-primary" />,
+      title: t("manifesto_p4_title"),
+      description: t("manifesto_p4_desc")
+    },
+    {
+      icon: <ShieldCheck className="w-12 h-12 text-primary" />,
+      title: t("manifesto_p5_title"),
+      description: t("manifesto_p5_desc")
+    }
+  ];
+  
   return (
     <section id="manifesto" className="py-20 sm:py-32 bg-secondary/20">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl sm:text-5xl font-bold mb-4">أسس الخلية الكمومية</h2>
+        <h2 className="text-4xl sm:text-5xl font-bold mb-4">{t('manifesto_title')}</h2>
         <p className="text-xl text-muted-foreground mb-16 max-w-3xl mx-auto">
-          مشروعنا ليس مجرد عملة، بل هو رؤية متكاملة لمستقبل البشرية مبنية على خمس معادلات أساسية.
+          {t('manifesto_subtitle')}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {principles.map((p, index) => (

@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center text-center overflow-hidden px-4">
        <div className="absolute inset-0 -z-10 h-full w-full bg-background bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
@@ -17,17 +20,17 @@ const Hero = () => {
       </div>
 
       <h1 className="mt-12 text-5xl md:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted-foreground">
-        ولادة اقتصاد جديد
+        {t('hero_title')}
       </h1>
       <p className="mt-4 text-xl md:text-2xl text-muted-foreground max-w-3xl">
-        من خلية واحدة، يتشكل المستقبل. انضم إلى الثورة التي تعيد تعريف القيمة والاتصال البشري.
+        {t('hero_subtitle')}
       </p>
       <div className="mt-8 flex gap-4">
         <Button size="lg" className="bg-primary/90 hover:bg-primary text-primary-foreground font-bold text-xl px-8 py-6 rounded-full shadow-lg shadow-primary/20">
-          ابدأ رحلتك
+          {t('hero_button_start')}
         </Button>
         <Button size="lg" variant="outline" className="font-bold text-xl px-8 py-6 rounded-full border-2 bg-transparent">
-          اقرأ الورقة البيضاء
+          {t('hero_button_whitepaper')}
         </Button>
       </div>
     </section>
