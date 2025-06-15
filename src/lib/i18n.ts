@@ -1,3 +1,4 @@
+
 export const translations = {
   ar: {
     header_title: "الخلية الكمومية",
@@ -75,7 +76,12 @@ export const translations = {
     auth_signup_success_desc: "لقد أرسلنا رابط تأكيد إلى بريدك الإلكتروني.",
     auth_error_generic: "حدث خطأ ما",
     signed_in_as: "قمت بتسجيل الدخول كـ",
-    subscription_coming_soon: "الاشتراكات الشهرية ستتوفر قريباً!"
+    subscription_coming_soon: "الاشتراكات الشهرية ستتوفر قريباً!",
+    subscription_success_title: "تم الاشتراك بنجاح!",
+    subscription_success_desc: "أهلاً بك! أنت الآن مشترك.",
+    subscription_canceled_title: "تم إلغاء الاشتراك",
+    subscription_canceled_desc: "تم إلغاء عملية الاشتراك.",
+    subscription_price: "9.99$ / شهر"
   },
   en: {
     header_title: "Quantum Cell",
@@ -153,6 +159,11 @@ export const translations = {
     auth_signup_success_desc: "We've sent a confirmation link to your email.",
     auth_error_generic: "An error occurred",
     signed_in_as: "Signed in as",
-    subscription_coming_soon: "Monthly subscriptions are coming soon!"
+    subscription_coming_soon: "Monthly subscriptions are coming soon!",
+    subscription_success_title: "Subscription Successful!",
+    subscription_success_desc: "Welcome! You are now subscribed.",
+    subscription_canceled_title: "Subscription Canceled",
+    subscription_canceled_desc: "Your subscription process was canceled.",
+    subscription_price: "$9.99 / month"
   }
 };
