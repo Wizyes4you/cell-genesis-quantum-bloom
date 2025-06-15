@@ -3,9 +3,9 @@ import React from 'react';
 import Header from '@/components/landing/Header';
 import Footer from '@/components/landing/Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Zap, Atom, Hourglass } from 'lucide-react';
+import { Zap, Atom } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import HexagonalCell from '@/components/mining/HexagonalCell';
 
 const MiningPage = () => {
   const { t } = useLanguage();
@@ -24,7 +24,7 @@ const MiningPage = () => {
         </section>
 
         <section className="mt-24 max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-16">
             <Card className="bg-secondary/30 border-border">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -36,24 +36,13 @@ const MiningPage = () => {
                 <p className="text-muted-foreground">{t('mining_principle_desc')}</p>
               </CardContent>
             </Card>
-            <Card className="bg-secondary/30 border-border">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Hourglass className="text-accent" />
-                  {t('mining_coming_soon_title')}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{t('mining_coming_soon_desc')}</p>
-                <div className="mt-4 flex flex-col items-center justify-center p-8 border-2 border-dashed border-border rounded-lg bg-background/50">
-                  <Zap className="w-16 h-16 text-primary" />
-                  <Button disabled size="lg" className="mt-4 animate-pulse">
-                    <Zap className="mr-2 h-5 w-5" />
-                    {t('start_mining_button')}
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+            
+            <div className="flex flex-col items-center justify-center pt-8">
+              <h2 className="text-3xl font-bold tracking-tight text-center mb-12 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-muted-foreground">
+                {t('mining_interface_title')}
+              </h2>
+              <HexagonalCell />
+            </div>
           </div>
         </section>
       </main>

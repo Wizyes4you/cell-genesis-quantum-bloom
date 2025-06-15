@@ -31,8 +31,7 @@ export const translations = {
     mining_subtitle: "نظام تعدين ثوري يعتمد على ترددات واهتزازات هاتفك. كل تفاعل هو مساهمة في بناء الشبكة.",
     mining_principle_title: "المبدأ العلمي: تردد + اهتزاز = طاقة",
     mining_principle_desc: "يستغل نظامنا المبادئ الفيزيائية الأساسية. مستشعرات هاتفك تلتقط الاهتزازات والترددات الدقيقة من بيئتك ومن تفاعلك، ويقوم نظامنا بتحويل هذه البيانات إلى طاقة رقمية تساهم في نمو الخلية الكمومية.",
-    mining_coming_soon_title: "واجهة التعدين قادمة قريباً",
-    mining_coming_soon_desc: "نحن نعمل على تطوير واجهة تفاعلية تسمح لك ببدء التعدين مباشرة من جهازك. ترقب التحديثات!",
+    mining_interface_title: "واجهة التعدين الكمومي",
     start_mining_button: "ابدأ التعدين",
     footer_title: "الخلية الكمومية",
     footer_subtitle: "بناء مستقبل لامركزي، خلية واحدة في كل مرة.",
@@ -70,8 +69,7 @@ export const translations = {
     mining_subtitle: "A revolutionary mining system based on your phone's frequencies and vibrations. Every interaction is a contribution to building the network.",
     mining_principle_title: "The Scientific Principle: Frequency + Vibration = Energy",
     mining_principle_desc: "Our system leverages fundamental physical principles. Your phone's sensors capture subtle vibrations and frequencies from your environment and your interaction. Our system converts this data into digital energy that contributes to the growth of the Quantum Cell.",
-    mining_coming_soon_title: "Mining Interface Coming Soon",
-    mining_coming_soon_desc: "We are developing an interactive interface that will allow you to start mining directly from your device. Stay tuned for updates!",
+    mining_interface_title: "Quantum Mining Interface",
     start_mining_button: "Start Mining",
     footer_title: "Quantum Cell",
     footer_subtitle: "Building a decentralized future, one cell at a time.",
@@ -79,4 +77,3 @@ export const translations = {
     language_toggle: "العربية"
   }
 };
-
