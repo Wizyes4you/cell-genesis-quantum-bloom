@@ -40,7 +40,18 @@ export const translations = {
     language_toggle: "English",
     personal_assistant_button: "المساعد الشخصي",
     assistant_title: "مساعدك الشخصي",
-    assistant_coming_soon: "ميزة المساعد الشخصي قيد التطوير وستكون متاحة قريبًا!"
+    assistant_coming_soon: "ميزة المساعد الشخصي قيد التطوير وستكون متاحة قريبًا!",
+    nav_support: "الدعم",
+    support_title: "ادعم الخلية الكمومية",
+    support_subtitle: "مساهمتك تساعد في بناء نظام عالمي جديد متطور ومبتكر.",
+    subscription_title: "الاشتراك الشهري",
+    subscription_desc: "كن عضواً داعماً مقابل دولار واحد فقط شهرياً.",
+    subscribe_button: "اشترك مقابل 1$/شهر",
+    donation_title: "تبرع لمرة واحدة",
+    donation_desc: "قدم تبرعًا لمرة واحدة لدعم تطوير المشروع.",
+    donation_placeholder: "أدخل المبلغ بالدولار الأمريكي",
+    donate_button: "تبرع الآن",
+    donation_amount: "المبلغ",
   },
   en: {
     header_title: "Quantum Cell",
@@ -82,6 +93,17 @@ export const translations = {
     language_toggle: "العربية",
     personal_assistant_button: "Personal Assistant",
     assistant_title: "Your Personal Assistant",
-    assistant_coming_soon: "The personal assistant feature is under development and will be available soon!"
+    assistant_coming_soon: "The personal assistant feature is under development and will be available soon!",
+    nav_support: "Support",
+    support_title: "Support the Quantum Cell",
+    support_subtitle: "Your contribution helps build a new, advanced, and innovative global system.",
+    subscription_title: "Monthly Subscription",
+    subscription_desc: "Become a supporting member for just $1 per month.",
+    subscribe_button: "Subscribe for $1/month",
+    donation_title: "One-time Donation",
+    donation_desc: "Make a one-time donation to support the project's development.",
+    donation_placeholder: "Enter amount in USD",
+    donate_button: "Donate",
+    donation_amount: "Amount",
   }
 };
