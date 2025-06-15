@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Zap, Atom } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import HexagonalCell from '@/components/mining/HexagonalCell';
+import PersonalAssistant from '@/components/assistant/PersonalAssistant';
 
 const MiningPage = () => {
   const { t } = useLanguage();
@@ -46,6 +47,7 @@ const MiningPage = () => {
           </div>
         </section>
       </main>
+      <PersonalAssistant />
       <Footer />
     </div>
   );

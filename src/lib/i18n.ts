@@ -37,7 +37,10 @@ export const translations = {
     footer_title: "الخلية الكمومية",
     footer_subtitle: "بناء مستقبل لامركزي، خلية واحدة في كل مرة.",
     footer_copyright: "الخلية الكمومية. جميع الحقوق محفوظة.",
-    language_toggle: "English"
+    language_toggle: "English",
+    personal_assistant_button: "المساعد الشخصي",
+    assistant_title: "مساعدك الشخصي",
+    assistant_coming_soon: "ميزة المساعد الشخصي قيد التطوير وستكون متاحة قريبًا!"
   },
   en: {
     header_title: "Quantum Cell",
@@ -76,6 +79,9 @@ export const translations = {
     footer_title: "Quantum Cell",
     footer_subtitle: "Building a decentralized future, one cell at a time.",
     footer_copyright: "Quantum Cell. All rights reserved.",
-    language_toggle: "العربية"
+    language_toggle: "العربية",
+    personal_assistant_button: "Personal Assistant",
+    assistant_title: "Your Personal Assistant",
+    assistant_coming_soon: "The personal assistant feature is under development and will be available soon!"
   }
 };
